@@ -33,6 +33,12 @@
   font-weight: 600;
   letter-spacing: 0.2em;
   color: #fff;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.logo:hover {
+  opacity: 0.7;
 }
 
 .nav-links {
@@ -248,6 +254,49 @@
 
 .contact-email a:hover {
   border-bottom-color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-note {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-note p {
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.contact-note ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-note li {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.6);
+  padding-left: 1.5rem;
+  position: relative;
+  font-weight: 300;
+}
+
+.contact-note li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.page-section {
+  min-height: calc(100vh - 300px);
+  display: flex;
+  align-items: center;
 }
 
 .footer {

@@ -19,48 +19,80 @@ function VectorLogo() {
     renderer.setPixelRatio(window.devicePixelRatio)
     containerRef.current.appendChild(renderer.domElement)
 
-    // Create vector arrow geometry
-    const points = []
+    // Lighting
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6)
+    scene.add(ambientLight)
 
-    // Arrow shaft
-    points.push(new THREE.Vector3(-1.5, 0, 0))
-    points.push(new THREE.Vector3(1.2, 0, 0))
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8)
+    directionalLight.position.set(5, 5, 5)
+    scene.add(directionalLight)
 
-    // Arrow head lines
-    const arrowHeadPoints = [
-      new THREE.Vector3(0.7, 0.4, 0),
-      new THREE.Vector3(1.2, 0, 0),
-      new THREE.Vector3(0.7, -0.4, 0),
-    ]
+    const backLight = new THREE.DirectionalLight(0x4444ff, 0.3)
+    backLight.position.set(-5, -5, -5)
+    scene.add(backLight)
 
-    const shaftGeometry = new THREE.BufferGeometry().setFromPoints(points)
-    const arrowGeometry = new THREE.BufferGeometry().setFromPoints(arrowHeadPoints)
+    // Create sophisticated 3D vector arrow
+    const arrowGroup = new THREE.Group()
 
-    const material = new THREE.LineBasicMaterial({
+    // Main arrow shaft - as a cylinder
+    const shaftGeometry = new THREE.CylinderGeometry(0.04, 0.04, 2.5, 16)
+    const shaftMaterial = new THREE.MeshStandardMaterial({
       color: 0xffffff,
-      linewidth: 2
+      metalness: 0.7,
+      roughness: 0.3,
+      emissive: 0x333333
     })
+    const shaft = new THREE.Mesh(shaftGeometry, shaftMaterial)
+    shaft.rotation.z = Math.PI / 2
+    shaft.position.x = 0.2
+    arrowGroup.add(shaft)
 
-    const shaft = new THREE.Line(shaftGeometry, material)
-    const arrowHead = new THREE.Line(arrowGeometry, material)
+    // Arrow head - cone
+    const headGeometry = new THREE.ConeGeometry(0.15, 0.5, 16)
+    const headMaterial = new THREE.MeshStandardMaterial({
+      color: 0xffffff,
+      metalness: 0.8,
+      roughness: 0.2,
+      emissive: 0x444444
+    })
+    const head = new THREE.Mesh(headGeometry, headMaterial)
+    head.rotation.z = -Math.PI / 2
+    head.position.x = 1.7
+    arrowGroup.add(head)
 
-    const arrow = new THREE.Group()
-    arrow.add(shaft)
-    arrow.add(arrowHead)
+    // Tail accent - smaller cone
+    const tailGeometry = new THREE.ConeGeometry(0.1, 0.3, 16)
+    const tail = new THREE.Mesh(tailGeometry, shaftMaterial)
+    tail.rotation.z = Math.PI / 2
+    tail.position.x = -1.35
+    arrowGroup.add(tail)
 
-    scene.add(arrow)
+    // Add subtle wireframe overlay
+    const wireframeGeometry = new THREE.EdgesGeometry(shaftGeometry)
+    const wireframeMaterial = new THREE.LineBasicMaterial({
+      color: 0x888888,
+      transparent: true,
+      opacity: 0.3
+    })
+    const wireframe = new THREE.LineSegments(wireframeGeometry, wireframeMaterial)
+    wireframe.rotation.z = Math.PI / 2
+    wireframe.position.x = 0.2
+    arrowGroup.add(wireframe)
+
+    scene.add(arrowGroup)
 
     camera.position.z = 4
 
-    // Animation
+    // Smooth animation
     let frame = 0
     function animate() {
       requestAnimationFrame(animate)
-      frame += 0.005
+      frame += 0.004
 
-      // Subtle rotation
-      arrow.rotation.y = Math.sin(frame) * 0.3
-      arrow.rotation.x = Math.cos(frame * 0.7) * 0.15
+      // Smooth, elegant rotation
+      arrowGroup.rotation.y = Math.sin(frame) * 0.4 + frame * 0.1
+      arrowGroup.rotation.x = Math.cos(frame * 0.6) * 0.2
+      arrowGroup.rotation.z = Math.sin(frame * 0.4) * 0.1
 
       renderer.render(scene, camera)
     }
@@ -69,10 +101,17 @@ function VectorLogo() {
 
     // Cleanup
     return () => {
-      if (containerRef.current) {
+      if (containerRef.current && containerRef.current.contains(renderer.domElement)) {
         containerRef.current.removeChild(renderer.domElement)
       }
       renderer.dispose()
+      shaftGeometry.dispose()
+      headGeometry.dispose()
+      tailGeometry.dispose()
+      wireframeGeometry.dispose()
+      shaftMaterial.dispose()
+      headMaterial.dispose()
+      wireframeMaterial.dispose()
     }
   }, [])
 
