@@ -5,7 +5,7 @@ function Home() {
     <section className="hero">
       <div className="hero-content">
         <h1 className="hero-title">
-          We find creators at the moment of creation
+          Investing in the next generation of creators and innovators
         </h1>
         <p className="hero-manifesto">
           Exceptional technical founders leveraging artificial intelligence to solve meaningful problems.
