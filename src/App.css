@@ -62,6 +62,23 @@
   border-bottom-color: #00ff88;
 }
 
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.mobile-menu-toggle span {
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  transition: all 0.3s;
+}
+
 .main {
   flex: 1;
   display: flex;
@@ -344,13 +361,49 @@
     padding: 1.5rem;
   }
 
+  .nav {
+    position: relative;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
   .nav-links {
-    gap: 1.5rem;
-    font-size: 0.85rem;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    gap: 0;
+    padding: 6rem 2rem 2rem;
+    transition: right 0.3s ease;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+  }
+
+  .nav-links-open {
+    right: 0;
+  }
+
+  .nav-links a {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 1.1rem;
+    width: 100%;
+  }
+
+  .nav-links a:hover {
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+    padding-left: 0.5rem;
+    color: #00ff88;
   }
 
   .hero {
-    padding: 6rem 1.5rem 5rem;
+    padding: 4rem 1.5rem 5rem;
   }
 
   .hero-title {
@@ -358,7 +411,7 @@
   }
 
   .hero-manifesto {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
 
   .cta-link {
@@ -370,11 +423,11 @@
   .philosophy,
   .focus,
   .contact {
-    padding: 5rem 1.5rem;
+    padding: 4rem 1.5rem;
   }
 
   .section-title {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 
   .vision-text p {
@@ -382,7 +435,7 @@
   }
 
   .philosophy-principle h3 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 
   .philosophy-principle p {
@@ -404,6 +457,10 @@
 
   .footer {
     padding: 2rem 1.5rem;
+  }
+
+  .footer-content {
+    font-size: 0.8rem;
   }
 
   .contact-email {
