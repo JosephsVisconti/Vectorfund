@@ -1,3 +1,5 @@
+import TimelineLine from '../TimelineLine'
+
 function Philosophy() {
   return (
     <section className="philosophy page-section">
@@ -8,8 +10,10 @@ function Philosophy() {
         </p>
 
         <div className="timeline">
+          <TimelineLine />
+
           <div className="timeline-stage">
-            <div className="timeline-marker">01</div>
+            <div className="timeline-marker"></div>
             <div className="timeline-content">
               <h3>Discovery: Pre-Revenue Product</h3>
               <p>
@@ -22,7 +26,7 @@ function Philosophy() {
           </div>
 
           <div className="timeline-stage">
-            <div className="timeline-marker">02</div>
+            <div className="timeline-marker"></div>
             <div className="timeline-content">
               <h3>Formation: Building the Foundation</h3>
               <p>
@@ -35,7 +39,7 @@ function Philosophy() {
           </div>
 
           <div className="timeline-stage">
-            <div className="timeline-marker">03</div>
+            <div className="timeline-marker"></div>
             <div className="timeline-content">
               <h3>Growth: Go-to-Market & Business Model</h3>
               <p>
@@ -48,7 +52,7 @@ function Philosophy() {
           </div>
 
           <div className="timeline-stage">
-            <div className="timeline-marker">04</div>
+            <div className="timeline-marker"></div>
             <div className="timeline-content">
               <h3>Scale: Building for the Long Term</h3>
               <p>
@@ -61,7 +65,7 @@ function Philosophy() {
           </div>
 
           <div className="timeline-stage">
-            <div className="timeline-marker">05</div>
+            <div className="timeline-marker"></div>
             <div className="timeline-content">
               <h3>Exit or Endure: Creating Liquidity</h3>
               <p>
