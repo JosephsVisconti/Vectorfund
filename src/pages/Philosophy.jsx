@@ -4,10 +4,23 @@ function Philosophy() {
   return (
     <section className="philosophy page-section">
       <div className="section-content">
-        <h2 className="section-title">How We Build Companies</h2>
-        <p className="philosophy-intro">
-          We partner with exceptional technical founders who have built something that solves a real problem—but need help turning it into a company.
-        </p>
+        <h2 className="section-title">Investment Philosophy</h2>
+
+        <div className="philosophy-vision">
+          <p>
+            We recognize the patterns of the past. Just as the creation of the internet spawned a wave of companies—both
+            winners and losers—we believe the advent of AI will create a second generational opportunity.
+          </p>
+          <p>
+            The wins in AI won't only come from model training and infrastructure. The greatest value will be created by
+            founders who leverage large language models from Claude, OpenAI, xAI, and others to build focused, applied solutions
+            that solve real problems.
+          </p>
+          <p>
+            Our philosophy: deploy capital and resources to help exceptional builders move from Point A to Point B—faster,
+            with fewer obstacles, and with institutional support from day one.
+          </p>
+        </div>
 
         <div className="timeline">
           <TimelineLine />
@@ -15,71 +28,71 @@ function Philosophy() {
           <div className="timeline-stage">
             <div className="timeline-marker"></div>
             <div className="timeline-content">
-              <h3>Discovery: Pre-Revenue Product</h3>
+              <h3>Discovery: Finding Exceptional Builders</h3>
               <p>
-                You've built software that solves a major problem. It works. Users want it.
-                But you're not business-savvy—you're a builder. The product can change the world,
-                whether AI-native or built using modern tools like Claude, GPT, or other platforms.
+                You've built something that solves a real problem. It works. Users want it. You're focused on the
+                product, the technology, the impact. We find founders at this inflection point—when technical
+                execution meets market opportunity.
               </p>
-              <span className="timeline-label">Where you are</span>
+              <span className="timeline-label">Where we invest</span>
             </div>
           </div>
 
           <div className="timeline-stage">
             <div className="timeline-marker"></div>
             <div className="timeline-content">
-              <h3>Formation: Building the Foundation</h3>
+              <h3>Formation: Deploying Resources</h3>
               <p>
-                We provide early conviction capital and help establish the company properly.
-                Legal structure, cap table, IP protection, initial positioning. We take equity,
-                not fees. You stay focused on building while we handle the business infrastructure.
+                Capital, legal structure, cap table design, IP protection, initial market positioning. We deploy the
+                resources you need to establish a proper foundation. You stay focused on building. We handle the
+                infrastructure. Equity-aligned, no fees.
               </p>
-              <span className="timeline-label">What we do first</span>
+              <span className="timeline-label">Early support</span>
             </div>
           </div>
 
           <div className="timeline-stage">
             <div className="timeline-marker"></div>
             <div className="timeline-content">
-              <h3>Growth: Go-to-Market & Business Model</h3>
+              <h3>Growth: Scaling Distribution</h3>
               <p>
-                Marketing strategy. Business model design. Customer acquisition. Revenue generation.
-                Pricing. We help you understand how to make profit, scale distribution, and build
-                a real business around your product. Strategic guidance on hiring, sales, and operations.
+                Go-to-market strategy. Business model refinement. Customer acquisition and revenue generation.
+                We help you scale what works—pricing, positioning, distribution. Strategic guidance on team building,
+                sales operations, and market expansion.
               </p>
-              <span className="timeline-label">Where we add value</span>
+              <span className="timeline-label">Acceleration</span>
             </div>
           </div>
 
           <div className="timeline-stage">
             <div className="timeline-marker"></div>
             <div className="timeline-content">
-              <h3>Scale: Building for the Long Term</h3>
+              <h3>Scale: Long-Term Partnership</h3>
               <p>
-                We help companies grow. Fundraising for next rounds. Team expansion. Market positioning.
-                Operational excellence. Some companies grow for decades. Others prepare for acquisition.
-                Either path requires institutional discipline and strategic clarity.
+                Fundraising for next rounds. Team expansion. Operational discipline. Market leadership.
+                Some companies scale for decades. Others achieve strategic exits. We support both paths with
+                institutional resources and long-term conviction.
               </p>
-              <span className="timeline-label">How we scale</span>
+              <span className="timeline-label">Building endurance</span>
             </div>
           </div>
 
           <div className="timeline-stage">
             <div className="timeline-marker"></div>
             <div className="timeline-content">
-              <h3>Exit or Endure: Creating Liquidity</h3>
+              <h3>Liquidity: Creating Outcomes</h3>
               <p>
-                Acquisition readiness. Secondary sales. Continued growth as an independent company.
-                We help founders navigate the path to liquidity—whether that's a strategic exit,
-                going public, or building a generational business. Success is measured in outcomes, not timelines.
+                Acquisition, secondary sales, public markets, or continued growth as an independent company.
+                We help founders navigate the path to impact and liquidity. Success is measured in outcomes
+                that matter—for founders, teams, and the problems they solve.
               </p>
-              <span className="timeline-label">The outcome</span>
+              <span className="timeline-label">Impact realized</span>
             </div>
           </div>
         </div>
 
         <div className="philosophy-footer">
-          <p>We invest at the moment of creation. We exit at the moment of impact.</p>
+          <p>We invest at the moment of creation. We scale at the moment of conviction.</p>
         </div>
       </div>
     </section>
