@@ -5,10 +5,10 @@ function Home() {
     <section className="hero">
       <div className="hero-content">
         <h1 className="hero-title">
-          Investing in the next generation of creators and innovators
+          We look for creative founders solving problems
         </h1>
         <p className="hero-manifesto">
-          Creative founders solving problems that have been unsolved until now—leveraging breakthrough capabilities
+          Problems that have been unsolved until now—leveraging breakthrough capabilities
           in software, science, and AI. Before traction. Before revenue. Before consensus.
         </p>
         <div className="hero-cta">
