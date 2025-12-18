@@ -8,8 +8,8 @@ function Home() {
           Investing in the next generation of creators and innovators
         </h1>
         <p className="hero-manifesto">
-          Exceptional technical founders leveraging artificial intelligence to solve meaningful problems.
-          Before traction. Before revenue. Before consensus.
+          Creative founders solving problems that have been unsolved until now—leveraging breakthrough capabilities
+          in software, science, and AI. Before traction. Before revenue. Before consensus.
         </p>
         <div className="hero-cta">
           <Link to="/contact" className="cta-link">Get in Touch →</Link>
