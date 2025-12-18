@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 function Home() {
   return (
     <section className="hero">
@@ -10,7 +12,7 @@ function Home() {
           Before traction. Before revenue. Before consensus.
         </p>
         <div className="hero-cta">
-          <a href="/contact" className="cta-link">Get in Touch →</a>
+          <Link to="/contact" className="cta-link">Get in Touch →</Link>
         </div>
       </div>
     </section>
