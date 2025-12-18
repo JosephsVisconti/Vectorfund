@@ -1,4 +1,5 @@
 import './App.css'
+import VectorLogo from './VectorLogo'
 
 function App() {
   return (
@@ -7,8 +8,9 @@ function App() {
         <nav className="nav">
           <div className="logo">VECTOR</div>
           <div className="nav-links">
-            <a href="#approach">Approach</a>
-            <a href="#criteria">Criteria</a>
+            <a href="#vision">Vision</a>
+            <a href="#philosophy">Philosophy</a>
+            <a href="#focus">Focus</a>
             <a href="#contact">Contact</a>
           </div>
         </nav>
@@ -16,23 +18,66 @@ function App() {
 
       <main className="main">
         <section className="hero">
+          <div className="hero-logo">
+            <VectorLogo />
+          </div>
           <div className="hero-content">
-            <h1 className="hero-title">Converting raw technical talent into equity that exits at scale</h1>
-            <p className="hero-subtitle">
-              Pre-seed conviction engine for exceptional builders
+            <h1 className="hero-title">
+              We find creators at the moment of creation
+            </h1>
+            <p className="hero-manifesto">
+              Exceptional technical founders leveraging artificial intelligence to solve meaningful problems.
+              Before traction. Before revenue. Before consensus.
             </p>
-            <div className="hero-stats">
-              <div className="stat">
-                <span className="stat-value">$25K–$100K</span>
-                <span className="stat-label">Check Size</span>
+          </div>
+        </section>
+
+        <section className="divider"></section>
+
+        <section className="vision" id="vision">
+          <div className="section-content">
+            <h2 className="section-title">Vision</h2>
+            <div className="vision-text">
+              <p>
+                Artificial intelligence is a foundational shift—comparable to the creation of the internet itself.
+                While large model providers and infrastructure companies will define the first wave of value creation,
+                the greatest long-term impact will come from the builders who apply these tools with precision,
+                creativity, and conviction.
+              </p>
+              <p>
+                Vector Fund exists to find those builders early and help transform raw technical insight into
+                enduring companies.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="divider"></section>
+
+        <section className="philosophy" id="philosophy">
+          <div className="section-content">
+            <h2 className="section-title">Investment Philosophy</h2>
+            <div className="philosophy-grid">
+              <div className="philosophy-principle">
+                <h3>We invest at the point where talent meets intent</h3>
+                <p>
+                  Our focus is not on polished decks or pedigree, but on signal: technical depth,
+                  speed of execution, and clarity of purpose.
+                </p>
               </div>
-              <div className="stat">
-                <span className="stat-value">5–10%</span>
-                <span className="stat-label">Equity Position</span>
+              <div className="philosophy-principle">
+                <h3>We partner at the moment of decision</h3>
+                <p>
+                  When exceptional builders decide to turn code into a company, we provide early conviction
+                  capital and structural guidance.
+                </p>
               </div>
-              <div className="stat">
-                <span className="stat-value">Pre-Seed</span>
-                <span className="stat-label">Stage Focus</span>
+              <div className="philosophy-principle">
+                <h3>We align through equity, not fees</h3>
+                <p>
+                  Our incentives are fully aligned with founders. Success is measured by durable growth
+                  and eventual liquidity—acquisition, secondary sales, or public markets.
+                </p>
               </div>
             </div>
           </div>
@@ -40,69 +85,40 @@ function App() {
 
         <section className="divider"></section>
 
-        <section className="approach" id="approach">
+        <section className="focus" id="focus">
           <div className="section-content">
-            <h2 className="section-title">Our Approach</h2>
-            <p className="section-intro">
-              We invest pre-seed capital and provide company formation support to exceptional technical founders.
-              Our value is front-loaded — we help founders go from idea to institution — and our compensation
-              is entirely aligned through equity ownership.
-            </p>
-
-            <div className="approach-grid">
-              <div className="approach-item">
-                <div className="approach-number">01</div>
-                <h3>Discovery</h3>
-                <p>Sourcing technical talent through hackathons and builder communities. We look for strong technical signal, not polished business plans.</p>
+            <h2 className="section-title">What We Back</h2>
+            <div className="focus-list">
+              <div className="focus-item">
+                <span className="focus-marker">→</span>
+                <p>AI-native software companies at pre-seed and pre-revenue stages</p>
               </div>
-
-              <div className="approach-item">
-                <div className="approach-number">02</div>
-                <h3>Formation</h3>
-                <p>Company structure, cap table hygiene, IP assignment, and go-to-market framing. We take equity, not fees.</p>
+              <div className="focus-item">
+                <span className="focus-marker">→</span>
+                <p>Builders emerging from hackathons, research, or independent development</p>
               </div>
-
-              <div className="approach-item">
-                <div className="approach-number">03</div>
-                <h3>Scale</h3>
-                <p>Strategic leverage for top companies: early hiring, customer intros, narrative shaping, and next round prep.</p>
+              <div className="focus-item">
+                <span className="focus-marker">→</span>
+                <p>Companies leveraging modern AI tools to create focused, applied solutions</p>
               </div>
-
-              <div className="approach-item">
-                <div className="approach-number">04</div>
-                <h3>Liquidity</h3>
-                <p>Acquisition, secondary sales, or public markets. Our wins are your wins.</p>
+              <div className="focus-item">
+                <span className="focus-marker">→</span>
+                <p>Mission-driven products with potential for large-scale adoption</p>
               </div>
             </div>
-          </div>
-        </section>
 
-        <section className="divider"></section>
-
-        <section className="criteria" id="criteria">
-          <div className="section-content">
-            <h2 className="section-title">What We Look For</h2>
-            <div className="criteria-list">
-              <div className="criteria-item">
-                <div className="criteria-icon">→</div>
-                <div className="criteria-text">
-                  <h3>Technical Excellence</h3>
-                  <p>Strong builders with demonstrated technical ability</p>
-                </div>
+            <div className="focus-details">
+              <div className="detail">
+                <span className="detail-label">Investment Size</span>
+                <span className="detail-value">$25K – $100K</span>
               </div>
-              <div className="criteria-item">
-                <div className="criteria-icon">→</div>
-                <div className="criteria-text">
-                  <h3>Early Conviction</h3>
-                  <p>Pre-seed stage with clear technical vision</p>
-                </div>
+              <div className="detail">
+                <span className="detail-label">Equity Position</span>
+                <span className="detail-value">5 – 10%</span>
               </div>
-              <div className="criteria-item">
-                <div className="criteria-icon">→</div>
-                <div className="criteria-text">
-                  <h3>Institutional Potential</h3>
-                  <p>Willingness to build a real company, not a lifestyle business</p>
-                </div>
+              <div className="detail">
+                <span className="detail-label">Stage</span>
+                <span className="detail-value">Pre-Seed</span>
               </div>
             </div>
           </div>
@@ -113,6 +129,9 @@ function App() {
         <section className="contact" id="contact">
           <div className="section-content">
             <h2 className="section-title">Get in Touch</h2>
+            <p className="contact-text">
+              If you're building something that matters, we want to hear from you.
+            </p>
             <p className="contact-email">
               <a href="mailto:hello@vectorfund.io">hello@vectorfund.io</a>
             </p>
@@ -122,7 +141,7 @@ function App() {
 
       <footer className="footer">
         <div className="footer-content">
-          <span>VECTOR</span>
+          <span>VECTOR FUND</span>
           <span>&copy; {new Date().getFullYear()}</span>
         </div>
       </footer>
