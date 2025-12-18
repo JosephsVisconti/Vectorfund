@@ -1,34 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="app">
+      <header className="header">
+        <nav className="nav">
+          <div className="logo">Vector Fund</div>
+          <div className="nav-links">
+            <a href="#about">About</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </nav>
+      </header>
+
+      <main className="main">
+        <section className="hero">
+          <h1 className="hero-title">Vector Fund</h1>
+          <p className="hero-subtitle">Investing in the Future of Technology</p>
+          <p className="hero-description">
+            We partner with exceptional founders building transformative companies
+          </p>
+          <button className="cta-button">Get in Touch</button>
+        </section>
+
+        <section className="features" id="about">
+          <div className="feature-card">
+            <h3>Early Stage Focus</h3>
+            <p>Investing in seed and Series A rounds</p>
+          </div>
+          <div className="feature-card">
+            <h3>Strategic Support</h3>
+            <p>Beyond capital - hands-on partnership</p>
+          </div>
+          <div className="feature-card">
+            <h3>Long-term Vision</h3>
+            <p>Building lasting relationships with founders</p>
+          </div>
+        </section>
+      </main>
+
+      <footer className="footer">
+        <p>&copy; 2024 Vector Fund. All rights reserved.</p>
+      </footer>
+    </div>
   )
 }
 
