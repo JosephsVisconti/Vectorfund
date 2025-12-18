@@ -8,7 +8,7 @@ function Home() {
           Investing in the next generation of creators and innovators
         </h1>
         <p className="hero-manifesto">
-          Creative founders solving problems that have been unsolved until now—leveraging breakthrough capabilities
+          We are looking for creative founders solving problems that have been unsolved until now—leveraging breakthrough capabilities
           in software, science, and AI. Before traction. Before revenue. Before consensus.
         </p>
         <div className="hero-cta">
