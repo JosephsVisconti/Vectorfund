@@ -12,7 +12,7 @@ function App() {
       <div className="app">
         <header className="header">
           <nav className="nav">
-            <Link to="/" className="logo">VECTOR</Link>
+            <Link to="/" className="logo">Vector Fund</Link>
             <div className="nav-links">
               <Link to="/vision">Vision</Link>
               <Link to="/philosophy">Philosophy</Link>
