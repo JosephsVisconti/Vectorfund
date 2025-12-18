@@ -194,26 +194,91 @@
   font-weight: 300;
 }
 
-.philosophy-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
+.philosophy-intro {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 4rem;
+  font-weight: 300;
 }
 
-.philosophy-principle h3 {
-  font-size: 1.6rem;
+.timeline {
+  position: relative;
+  padding-left: 4rem;
+  margin: 3rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 1.5rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #00ff88, transparent);
+}
+
+.timeline-stage {
+  position: relative;
+  margin-bottom: 4rem;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -4rem;
+  top: 0;
+  width: 3rem;
+  height: 3rem;
+  background: rgba(0, 255, 136, 0.1);
+  border: 2px solid #00ff88;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #00ff88;
+  z-index: 1;
+}
+
+.timeline-content h3 {
+  font-size: 1.5rem;
   font-weight: 500;
   color: #fff;
   margin-bottom: 1rem;
   letter-spacing: -0.02em;
-  line-height: 1.4;
 }
 
-.philosophy-principle p {
-  font-size: 1.1rem;
+.timeline-content p {
+  font-size: 1.05rem;
   line-height: 1.8;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.65);
   font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.timeline-label {
+  display: inline-block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #00ff88;
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+
+.philosophy-footer {
+  margin-top: 5rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.philosophy-footer p {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 400;
+  font-style: italic;
 }
 
 .focus-list {
@@ -434,11 +499,34 @@
     font-size: 1rem;
   }
 
-  .philosophy-principle h3 {
+  .timeline {
+    padding-left: 2.5rem;
+  }
+
+  .timeline::before {
+    left: 0.75rem;
+  }
+
+  .timeline-marker {
+    left: -2.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 0.8rem;
+  }
+
+  .timeline-content h3 {
     font-size: 1.2rem;
   }
 
-  .philosophy-principle p {
+  .timeline-content p {
+    font-size: 1rem;
+  }
+
+  .philosophy-footer p {
+    font-size: 1.1rem;
+  }
+
+  .philosophy-intro {
     font-size: 1rem;
   }
 
