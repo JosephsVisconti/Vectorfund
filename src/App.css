@@ -491,6 +491,63 @@
   color: #00ff88;
 }
 
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.team-member {
+  display: flex;
+  flex-direction: column;
+}
+
+.team-member-info h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.team-member-role {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #00ff88;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.team-member-bio {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+
+.team-member-email {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  display: inline-block;
+}
+
+.team-member-email:hover {
+  color: #00ff88;
+  border-bottom-color: #00ff88;
+}
+
+.contact-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 6rem 0 4rem;
+}
+
 .page-section {
   min-height: calc(100vh - 300px);
   display: flex;
