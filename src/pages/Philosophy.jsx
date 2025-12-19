@@ -41,18 +41,6 @@ function Philosophy() {
       <div className="section-content">
         <h2 className="section-title">Investment Philosophy</h2>
 
-        <div className="philosophy-vision">
-          <p>
-            The internet created a generational wave of companies. AI will create the next one.
-          </p>
-          <p>
-            The greatest value will not come from model training—it will come from founders leveraging LLMs from Claude, OpenAI, and xAI to build focused solutions that solve real problems.
-          </p>
-          <p>
-            Our philosophy: deploy capital and resources to help exceptional builders move from Point A to Point B—faster, with fewer obstacles.
-          </p>
-        </div>
-
         <div className="horizontal-timeline">
           <div className="timeline-nav">
             {stages.map((stage, index) => (
@@ -73,6 +61,18 @@ function Philosophy() {
             <p>{stages[activeStage].description}</p>
             <span className="timeline-label">{stages[activeStage].label}</span>
           </div>
+        </div>
+
+        <div className="philosophy-vision">
+          <p>
+            The internet created a generational wave of companies. AI will create the next one.
+          </p>
+          <p>
+            The greatest value will not come from model training—it will come from founders leveraging LLMs from Claude, OpenAI, and xAI to build focused solutions that solve real problems.
+          </p>
+          <p>
+            Our philosophy: deploy capital and resources to help exceptional builders move from Point A to Point B—faster, with fewer obstacles.
+          </p>
         </div>
 
         <div className="philosophy-footer">
