@@ -7,7 +7,7 @@ function Philosophy() {
     {
       title: 'Discovery',
       subtitle: 'Finding Exceptional Builders',
-      description: 'You've built something that solves a real problem. It works. Users want it. We find founders at this inflection point—when technical execution meets market opportunity.',
+      description: 'You have built something that solves a real problem. It works. Users want it. We find founders at this inflection point—when technical execution meets market opportunity.',
       label: 'Where we invest'
     },
     {
@@ -46,7 +46,7 @@ function Philosophy() {
             The internet created a generational wave of companies. AI will create the next one.
           </p>
           <p>
-            The greatest value won't come from model training—it will come from founders leveraging LLMs from Claude, OpenAI, and xAI to build focused solutions that solve real problems.
+            The greatest value will not come from model training—it will come from founders leveraging LLMs from Claude, OpenAI, and xAI to build focused solutions that solve real problems.
           </p>
           <p>
             Our philosophy: deploy capital and resources to help exceptional builders move from Point A to Point B—faster, with fewer obstacles.
