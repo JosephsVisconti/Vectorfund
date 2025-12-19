@@ -770,4 +770,30 @@
   .contact-text {
     font-size: 1rem;
   }
+
+  .team-grid {
+    padding: 0 1.5rem;
+    gap: 4rem;
+  }
+
+  .team-member {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    padding: 1.5rem;
+  }
+
+  .team-member-photo {
+    margin: 0;
+  }
+
+  .team-member-info h3 {
+    font-size: 1.3rem;
+  }
+
+  .team-member-bio {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
 }
