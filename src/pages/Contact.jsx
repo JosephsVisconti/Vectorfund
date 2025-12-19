@@ -6,6 +6,13 @@ function Contact() {
       bio: 'Edward is a Co-Founder of Vector Fund, an AI-first venture capital firm focused on identifying early technical talent and converting conviction into equity that reaches liquidity. At Vector, he works at the intersection of AI innovation, company formation, and strategic execution to assist founders move from raw ideas to scalable, investable businesses. Prior to Vector Fund, Edward worked in commercial real estate brokerage and currently serves as Chief Operating Officer at Alero Payments, a USAG-backed payments company. Across industries, his work centers on building systems, aligning incentives, and scaling businesses responsibly.',
       email: 'edward@vectorfund.io',
       photo: '/edward-fleming.JPEG'
+    },
+    {
+      name: 'Joseph Visconti',
+      role: 'Co-Founder',
+      bio: 'Joseph Visconti is a Co-Founder of Vector Fund, an early-stage investment firm focused on identifying and backing software founders building at the frontier of artificial intelligence. Joseph previously led artificial intelligence initiatives within the Florida Department of Government Efficiency, housed in the Executive Office of the Governor, State of Florida, where he worked alongside software engineers and senior leadership to deploy AI-driven products aimed at improving government efficiency, transparency, and operations. He is also the Founder of Delilah, a legislative media and civic-technology company that leverages artificial intelligence to increase transparency, accessibility, and public understanding of the legislative process. He holds a double major in Economics and History from Florida State University and has completed professional education at MIT in applied generative AI.',
+      email: 'joseph@vectorfund.io',
+      photo: '/Joseph-Visconti.JPEG'
     }
   ]
 
