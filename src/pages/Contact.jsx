@@ -10,7 +10,7 @@ function Contact() {
     {
       name: 'Joseph Visconti',
       role: 'Co-Founder',
-      bio: 'Joseph is a Co-Founder of Vector Fund, an early-stage investment firm focused on identifying and backing software founders building at the frontier of artificial intelligence. Joseph previously led AI initiatives within the Florida Department of Government Efficiency, where he worked alongside software engineers and senior leadership to deploy AI-driven products aimed at improving government efficiency and transparency. He is also the Founder of Delilah, a legislative media and civic-technology company that leverages AI to increase transparency and public understanding of the legislative process. He holds a double major in Economics and History from Florida State University and has completed professional education at MIT in applied generative AI.',
+      bio: 'Joseph is a Co-Founder of Vector Fund, an early-stage investment firm focused on identifying and backing software founders building at the frontier of artificial intelligence. Joseph previously led AI initiatives within the Florida Department of Government Efficiency, within the Executive Office of the Governor, State of Florida, where he worked alongside software engineers and senior leadership to deploy AI-driven products aimed at improving government efficiency and transparency. He is also the Founder of Delilah, a legislative media and civic-technology company that leverages AI to increase transparency and public understanding of the legislative process. He holds a double major in Economics and History from Florida State University and has completed professional education at MIT in applied generative AI.',
       email: 'Joseph@vectorfund.io',
       photo: '/Joseph.JPEG'
     }
