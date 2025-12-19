@@ -503,6 +503,23 @@
   flex-direction: column;
 }
 
+.team-member-photo {
+  margin-bottom: 2rem;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.team-member-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.team-member:hover .team-member-photo img {
+  transform: scale(1.02);
+}
+
 .team-member-info h3 {
   font-size: 1.5rem;
   font-weight: 500;

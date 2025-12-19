@@ -1,16 +1,11 @@
 function Contact() {
   const team = [
     {
-      name: 'Team Member 1',
-      role: 'Managing Partner',
-      bio: 'Brief bio describing background and expertise.',
-      email: 'name@vectorfund.io'
-    },
-    {
-      name: 'Team Member 2',
-      role: 'Partner',
-      bio: 'Brief bio describing background and expertise.',
-      email: 'name@vectorfund.io'
+      name: 'Edward Fleming',
+      role: 'Co-Founder',
+      bio: 'Edward is a Co-Founder of Vector Fund, an AI-first venture capital firm focused on identifying early technical talent and converting conviction into equity that reaches liquidity. At Vector, he works at the intersection of AI innovation, company formation, and strategic execution to assist founders move from raw ideas to scalable, investable businesses. Prior to Vector Fund, Edward worked in commercial real estate brokerage and currently serves as Chief Operating Officer at Alero Payments, a USAG-backed payments company. Across industries, his work centers on building systems, aligning incentives, and scaling businesses responsibly.',
+      email: 'edward@vectorfund.io',
+      photo: '/edward-fleming.jpg'
     }
   ]
 
@@ -22,6 +17,11 @@ function Contact() {
         <div className="team-grid">
           {team.map((member, index) => (
             <div key={index} className="team-member">
+              {member.photo && (
+                <div className="team-member-photo">
+                  <img src={member.photo} alt={member.name} />
+                </div>
+              )}
               <div className="team-member-info">
                 <h3>{member.name}</h3>
                 <p className="team-member-role">{member.role}</p>
