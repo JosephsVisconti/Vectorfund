@@ -494,12 +494,12 @@
 .team-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 8rem;
+  gap: 4rem;
   margin-bottom: 6rem;
-  max-width: 1400px;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 4rem;
+  padding: 0 6rem;
 }
 
 .team-member {
@@ -508,8 +508,6 @@
   align-items: center;
   text-align: center;
   padding: 2rem;
-  max-width: 500px;
-  margin: 0 auto;
 }
 
 .team-member-photo {
