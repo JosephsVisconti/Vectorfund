@@ -1,6 +1,41 @@
-import TimelineLine from '../TimelineLine'
+import { useState } from 'react'
 
 function Philosophy() {
+  const [activeStage, setActiveStage] = useState(0)
+
+  const stages = [
+    {
+      title: 'Discovery',
+      subtitle: 'Finding Exceptional Builders',
+      description: 'You've built something that solves a real problem. It works. Users want it. We find founders at this inflection point—when technical execution meets market opportunity.',
+      label: 'Where we invest'
+    },
+    {
+      title: 'Formation',
+      subtitle: 'Deploying Resources',
+      description: 'Capital, legal structure, cap table design, IP protection. We deploy the resources you need to establish a proper foundation. You stay focused on building.',
+      label: 'Early support'
+    },
+    {
+      title: 'Growth',
+      subtitle: 'Scaling Distribution',
+      description: 'Go-to-market strategy. Business model refinement. Customer acquisition. We help you scale what works—pricing, positioning, distribution.',
+      label: 'Acceleration'
+    },
+    {
+      title: 'Scale',
+      subtitle: 'Long-Term Partnership',
+      description: 'Fundraising for next rounds. Team expansion. Market leadership. We support both paths—decades of growth or strategic exits.',
+      label: 'Building endurance'
+    },
+    {
+      title: 'Liquidity',
+      subtitle: 'Creating Outcomes',
+      description: 'Acquisition, secondary sales, public markets, or continued independence. We help founders navigate the path to impact and liquidity.',
+      label: 'Impact realized'
+    }
+  ]
+
   return (
     <section className="philosophy page-section">
       <div className="section-content">
@@ -8,86 +43,35 @@ function Philosophy() {
 
         <div className="philosophy-vision">
           <p>
-            We recognize the patterns of the past. Just as the creation of the internet spawned a wave of companies—both
-            winners and losers—we believe the advent of AI will create a second generational opportunity.
+            The internet created a generational wave of companies. AI will create the next one.
           </p>
           <p>
-            The wins in AI won't only come from model training and infrastructure. The greatest value will be created by
-            founders who leverage large language models from Claude, OpenAI, xAI, and others to build focused, applied solutions
-            that solve real problems.
+            The greatest value won't come from model training—it will come from founders leveraging LLMs from Claude, OpenAI, and xAI to build focused solutions that solve real problems.
           </p>
           <p>
-            Our philosophy: deploy capital and resources to help exceptional builders move from Point A to Point B—faster,
-            with fewer obstacles, and with institutional support from day one.
+            Our philosophy: deploy capital and resources to help exceptional builders move from Point A to Point B—faster, with fewer obstacles.
           </p>
         </div>
 
-        <div className="timeline">
-          <TimelineLine />
-
-          <div className="timeline-stage">
-            <div className="timeline-marker"></div>
-            <div className="timeline-content">
-              <h3>Discovery: Finding Exceptional Builders</h3>
-              <p>
-                You've built something that solves a real problem. It works. Users want it. You're focused on the
-                product, the technology, the impact. We find founders at this inflection point—when technical
-                execution meets market opportunity.
-              </p>
-              <span className="timeline-label">Where we invest</span>
-            </div>
+        <div className="horizontal-timeline">
+          <div className="timeline-nav">
+            {stages.map((stage, index) => (
+              <div
+                key={index}
+                className={`timeline-nav-item ${activeStage === index ? 'active' : ''}`}
+                onClick={() => setActiveStage(index)}
+              >
+                <div className="timeline-nav-marker"></div>
+                <span className="timeline-nav-title">{stage.title}</span>
+              </div>
+            ))}
+            <div className="timeline-nav-line"></div>
           </div>
 
-          <div className="timeline-stage">
-            <div className="timeline-marker"></div>
-            <div className="timeline-content">
-              <h3>Formation: Deploying Resources</h3>
-              <p>
-                Capital, legal structure, cap table design, IP protection, initial market positioning. We deploy the
-                resources you need to establish a proper foundation. You stay focused on building. We handle the
-                infrastructure. Equity-aligned, no fees.
-              </p>
-              <span className="timeline-label">Early support</span>
-            </div>
-          </div>
-
-          <div className="timeline-stage">
-            <div className="timeline-marker"></div>
-            <div className="timeline-content">
-              <h3>Growth: Scaling Distribution</h3>
-              <p>
-                Go-to-market strategy. Business model refinement. Customer acquisition and revenue generation.
-                We help you scale what works—pricing, positioning, distribution. Strategic guidance on team building,
-                sales operations, and market expansion.
-              </p>
-              <span className="timeline-label">Acceleration</span>
-            </div>
-          </div>
-
-          <div className="timeline-stage">
-            <div className="timeline-marker"></div>
-            <div className="timeline-content">
-              <h3>Scale: Long-Term Partnership</h3>
-              <p>
-                Fundraising for next rounds. Team expansion. Operational discipline. Market leadership.
-                Some companies scale for decades. Others achieve strategic exits. We support both paths with
-                institutional resources and long-term conviction.
-              </p>
-              <span className="timeline-label">Building endurance</span>
-            </div>
-          </div>
-
-          <div className="timeline-stage">
-            <div className="timeline-marker"></div>
-            <div className="timeline-content">
-              <h3>Liquidity: Creating Outcomes</h3>
-              <p>
-                Acquisition, secondary sales, public markets, or continued growth as an independent company.
-                We help founders navigate the path to impact and liquidity. Success is measured in outcomes
-                that matter—for founders, teams, and the problems they solve.
-              </p>
-              <span className="timeline-label">Impact realized</span>
-            </div>
+          <div className="timeline-stage-display">
+            <h3>{stages[activeStage].subtitle}</h3>
+            <p>{stages[activeStage].description}</p>
+            <span className="timeline-label">{stages[activeStage].label}</span>
           </div>
         </div>
 
