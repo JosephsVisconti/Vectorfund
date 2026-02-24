@@ -39,54 +39,90 @@ html {
 }
 
 .header {
-  padding: 2rem 3rem;
+  padding: 0 3rem;
+  height: 64px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   position: sticky;
   top: 0;
-  background: rgba(10, 10, 10, 0.95);
-  backdrop-filter: blur(20px);
+  background: rgba(10, 10, 13, 0.92);
+  backdrop-filter: blur(24px);
   z-index: 100;
 }
 
 .nav {
   max-width: 1400px;
   margin: 0 auto;
+  height: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
-.logo {
-  font-size: 1.2rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  color: #fff;
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+  margin-right: auto;
   text-decoration: none;
-  transition: color 0.3s;
+  transition: opacity 0.25s;
 }
 
-.logo:hover {
-  color: #00ff88;
+.logo-link:hover {
+  opacity: 0.8;
+}
+
+.logo-svg {
+  display: block;
+  flex-shrink: 0;
+}
+
+.logo-wordmark {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  line-height: 1;
+}
+
+.logo-wordmark-top {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.logo-wordmark-bottom {
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
 }
 
 .nav-links {
   display: flex;
-  gap: 3rem;
+  align-items: center;
+  gap: 2.5rem;
 }
 
-.nav-links a {
-  color: rgba(255, 255, 255, 0.5);
+.nav-link {
+  color: rgba(255, 255, 255, 0.55);
   text-decoration: none;
-  font-size: 0.9rem;
-  letter-spacing: 0.05em;
-  transition: all 0.3s;
-  font-weight: 400;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding-bottom: 2px;
   border-bottom: 2px solid transparent;
-  padding-bottom: 0.25rem;
+  transition: color 0.25s, border-color 0.25s;
 }
 
-.nav-links a:hover {
-  color: rgba(255, 255, 255, 1);
+.nav-link:hover {
+  color: #fff;
+}
+
+.nav-link-active {
+  color: #fff;
   border-bottom-color: #00ff88;
 }
 
@@ -113,6 +149,286 @@ html {
   flex-direction: column;
 }
 
+/* ── Image slideshow ── */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.4s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-slide-active {
+  opacity: 1;
+}
+
+/* ── Video slides ── */
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.hero-video-active {
+  opacity: 1;
+}
+
+/* ── Animated poster (timelapse-like fallback when no video file) ── */
+.hero-poster-anim {
+  position: absolute;
+  inset: 0;
+  background-size: 130%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  animation: timelapsePan 20s ease-in-out infinite alternate;
+  will-change: background-size, background-position;
+}
+
+@keyframes timelapsePan {
+  0%   { background-size: 115%; background-position: 45% 55%; }
+  100% { background-size: 142%; background-position: 55% 45%; }
+}
+
+/* Moving sky/atmosphere overlay */
+.hero-poster-anim::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    165deg,
+    rgba(15, 25, 65, 0.35) 0%,
+    rgba(10, 15, 40, 0.15) 28%,
+    transparent 52%
+  );
+  animation: skyDrift 12s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes skyDrift {
+  0%   { opacity: 0.3; transform: translateX(-6%); }
+  100% { opacity: 0.75; transform: translateX(6%); }
+}
+
+/* Street-level traffic light streaks */
+.hero-poster-anim::before {
+  content: '';
+  position: absolute;
+  left: -30%;
+  right: 0;
+  bottom: 27%;
+  height: 5px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 175, 45, 0.65) 18%,
+    rgba(255, 235, 130, 0.9) 28%,
+    rgba(255, 175, 45, 0.65) 40%,
+    transparent 58%,
+    rgba(190, 90, 25, 0.45) 72%,
+    rgba(190, 90, 25, 0.45) 80%,
+    transparent 100%
+  );
+  box-shadow: 0 38px 0 rgba(255, 175, 45, 0.3);
+  filter: blur(2.5px);
+  mix-blend-mode: screen;
+  animation: lightStream 5s cubic-bezier(0.25, 0, 0.75, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes lightStream {
+  0%   { transform: translateX(-40%); opacity: 0; }
+  8%   { opacity: 1; }
+  82%  { opacity: 0.85; }
+  96%  { opacity: 0; }
+  100% { transform: translateX(130%); opacity: 0; }
+}
+
+/* ── Sunrise variant: sky shifts from pre-dawn → sunrise → midday → sunset → dusk ── */
+/* Overrides the generic timelapsePan and skyDrift for the buildings slide */
+
+.hero-poster-anim--sunrise {
+  /* Gentle upward pan as sun "rises" */
+  animation: sunrisePan 8s ease-in-out 1 forwards;
+}
+
+@keyframes sunrisePan {
+  0%   { background-size: 115%; background-position: 50% 60%; }
+  40%  { background-size: 120%; background-position: 50% 50%; }
+  100% { background-size: 118%; background-position: 50% 55%; }
+}
+
+/* Sky color gradient overlay — pre-dawn → amber dawn → golden → blue day → warm sunset → deep dusk */
+.hero-poster-anim--sunrise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  animation: sunriseToSunset 8s ease-in-out 1 forwards;
+  pointer-events: none;
+}
+
+@keyframes sunriseToSunset {
+  /* Pre-dawn: dark navy blanket */
+  0%   { background: linear-gradient(180deg, rgba(6, 10, 30, 0.82) 0%, rgba(12, 20, 52, 0.50) 45%, rgba(4, 8, 20, 0.12) 100%); }
+  /* First light: warm amber creeping in from below */
+  14%  { background: linear-gradient(180deg, rgba(28, 36, 78, 0.68) 0%, rgba(165, 68, 14, 0.52) 55%, rgba(205, 98, 18, 0.32) 100%); }
+  /* Sunrise: golden orange floods the sky */
+  28%  { background: linear-gradient(180deg, rgba(180, 68, 10, 0.58) 0%, rgba(232, 126, 20, 0.46) 50%, rgba(248, 162, 42, 0.26) 100%); }
+  /* Golden hour top-light */
+  40%  { background: linear-gradient(180deg, rgba(218, 120, 14, 0.42) 0%, rgba(248, 168, 32, 0.28) 50%, rgba(255, 195, 60, 0.14) 100%); }
+  /* Midday: clear blue sky, barely any overlay */
+  54%  { background: linear-gradient(180deg, rgba(18, 68, 148, 0.38) 0%, rgba(42, 102, 180, 0.18) 55%, rgba(4, 18, 68, 0.06) 100%); }
+  /* Late afternoon: warm gold returns */
+  68%  { background: linear-gradient(180deg, rgba(185, 88, 10, 0.46) 0%, rgba(232, 138, 20, 0.36) 50%, rgba(248, 68, 10, 0.26) 100%); }
+  /* Sunset: deep orange-red burns */
+  84%  { background: linear-gradient(180deg, rgba(165, 38, 8, 0.62) 0%, rgba(198, 52, 12, 0.48) 50%, rgba(88, 14, 4, 0.36) 100%); }
+  /* Dusk: fades to dark, slide transitions out */
+  100% { background: linear-gradient(180deg, rgba(8, 10, 28, 0.80) 0%, rgba(20, 14, 38, 0.55) 45%, rgba(4, 4, 14, 0.20) 100%); }
+}
+
+/* No street-level traffic streaks for the upward-looking building shot */
+.hero-poster-anim--sunrise::before {
+  content: none;
+}
+
+/* ── Logo animation slide ── */
+.hero-slide-logo {
+  background: #0a0a0a;
+}
+
+/* ── Logo draw animation ── */
+.logo-anim-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  z-index: 1;
+}
+
+.logo-anim-svg {
+  width: 300px;
+  height: 300px;
+}
+
+/* Each stroke animates: invisible → draws in → holds → fades → resets */
+/* Total cycle: 5s */
+
+.logo-anim-spine {
+  animation: drawSpine 5s ease-out infinite;
+}
+@keyframes drawSpine {
+  0%         { stroke-dashoffset: 25; opacity: 0; }
+  4%         { opacity: 1; }
+  18%        { stroke-dashoffset: 0; }
+  75%        { stroke-dashoffset: 0; opacity: 1; }
+  88%        { stroke-dashoffset: 0; opacity: 0; }
+  100%       { stroke-dashoffset: 25; opacity: 0; }
+}
+
+.logo-anim-arrow-l {
+  animation: drawArrowL 5s ease-out infinite;
+}
+@keyframes drawArrowL {
+  0%, 18%    { stroke-dashoffset: 9; opacity: 0; }
+  20%        { opacity: 1; }
+  28%        { stroke-dashoffset: 0; }
+  75%        { stroke-dashoffset: 0; opacity: 1; }
+  88%        { stroke-dashoffset: 0; opacity: 0; }
+  100%       { stroke-dashoffset: 9; opacity: 0; }
+}
+
+.logo-anim-arrow-r {
+  animation: drawArrowR 5s ease-out infinite;
+}
+@keyframes drawArrowR {
+  0%, 25%    { stroke-dashoffset: 9; opacity: 0; }
+  27%        { opacity: 1; }
+  35%        { stroke-dashoffset: 0; }
+  75%        { stroke-dashoffset: 0; opacity: 1; }
+  88%        { stroke-dashoffset: 0; opacity: 0; }
+  100%       { stroke-dashoffset: 9; opacity: 0; }
+}
+
+.logo-anim-bar-top {
+  animation: drawBarTop 5s ease-out infinite;
+}
+@keyframes drawBarTop {
+  0%, 33%    { stroke-dashoffset: 22; opacity: 0; }
+  35%        { opacity: 1; }
+  48%        { stroke-dashoffset: 0; }
+  75%        { stroke-dashoffset: 0; opacity: 1; }
+  88%        { stroke-dashoffset: 0; opacity: 0; }
+  100%       { stroke-dashoffset: 22; opacity: 0; }
+}
+
+.logo-anim-bar-mid {
+  animation: drawBarMid 5s ease-out infinite;
+}
+@keyframes drawBarMid {
+  0%, 46%    { stroke-dashoffset: 15; opacity: 0; }
+  48%        { opacity: 1; }
+  58%        { stroke-dashoffset: 0; }
+  75%        { stroke-dashoffset: 0; opacity: 1; }
+  88%        { stroke-dashoffset: 0; opacity: 0; }
+  100%       { stroke-dashoffset: 15; opacity: 0; }
+}
+
+.logo-anim-dot {
+  animation: popDot 5s ease-out infinite;
+}
+@keyframes popDot {
+  0%, 56%    { opacity: 0; transform: scale(0); }
+  58%        { opacity: 0; }
+  62%        { opacity: 1; transform: scale(1.4); }
+  68%        { transform: scale(1); }
+  75%        { opacity: 1; }
+  88%        { opacity: 0; }
+  100%       { opacity: 0; }
+}
+
+.logo-anim-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  font-weight: 600;
+  animation: fadeLabel 5s ease-out infinite;
+}
+@keyframes fadeLabel {
+  0%, 58%  { opacity: 0; }
+  65%      { opacity: 1; }
+  75%      { opacity: 1; }
+  88%      { opacity: 0; }
+  100%     { opacity: 0; }
+}
+
+.hero-slide-label {
+  position: absolute;
+  bottom: 2rem;
+  right: 2.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(0, 255, 136, 0.6);
+  font-weight: 600;
+  z-index: 5;
+}
+
 /* ── Full-screen chaos hero ── */
 .hero-full {
   position: relative;
@@ -129,7 +445,7 @@ html {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 0;
+  z-index: 3;
 }
 
 .chaos-tile {
@@ -138,12 +454,21 @@ html {
   text-transform: uppercase;
   letter-spacing: -0.02em;
   white-space: nowrap;
-  animation-duration: 6s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
   will-change: transform;
   line-height: 1;
+}
+
+.chaos-tile.anim-a {
+  animation: float-a 6s ease-in-out infinite alternate;
+}
+.chaos-tile.anim-b {
+  animation: float-b 7s ease-in-out infinite alternate;
+}
+.chaos-tile.anim-c {
+  animation: float-c 5s ease-in-out infinite alternate;
+}
+.chaos-tile.anim-d {
+  animation: float-d 8s ease-in-out infinite alternate;
 }
 
 @keyframes float-a {
@@ -171,17 +496,38 @@ html {
   100% { transform: translate(-15px, -50px) rotate(1deg); }
 }
 
-.hero-overlay {
+/* ── Layer 2: dark gradient — contrast for headline + CTA ── */
+.hero-gradient {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 50% 50%, rgba(10,10,10,0.35) 0%, rgba(10,10,10,0.80) 70%);
   z-index: 1;
+  pointer-events: none;
+  background:
+    /* strong bottom-up vignette — readability for text sitting above it */
+    linear-gradient(to top,  rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.38) 32%, transparent 58%),
+    /* left-side panel — supports left-aligned headlines */
+    linear-gradient(to right, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.18) 42%, transparent 68%),
+    /* top vignette — separates header from media */
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.22) 0%, transparent 26%);
+}
+
+/* ── Layer 3: subtle film grain ── */
+.hero-noise {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.038;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+  background-repeat: repeat;
+  mix-blend-mode: overlay;
 }
 
 .hero-center {
   position: relative;
-  z-index: 2;
-  max-width: 900px;
+  z-index: 4;
+  max-width: 860px;
   padding: 0 4rem;
 }
 
@@ -195,15 +541,14 @@ html {
 }
 
 .hero-title {
-  font-size: 4rem;
-  font-weight: 500;
-  line-height: 1.2;
+  font-size: 3.75rem;
+  font-weight: 700;
+  line-height: 1.18;
   margin-bottom: 2.5rem;
-  color: #fff;
-  letter-spacing: -0.03em;
+  color: rgba(210, 218, 230, 0.92);
+  letter-spacing: -0.04em;
   position: relative;
   display: inline-block;
-  white-space: nowrap;
   animation: fadeIn 0.8s ease both;
 }
 
@@ -225,12 +570,13 @@ html {
 }
 
 .hero-manifesto {
-  font-size: 1.3rem;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.15rem;
+  color: rgba(180, 190, 205, 0.72);
   line-height: 1.7;
-  font-weight: 300;
-  max-width: 750px;
+  font-weight: 400;
+  max-width: 620px;
   margin-bottom: 3rem;
+  letter-spacing: 0.01em;
 }
 
 .hero-cta {
@@ -668,8 +1014,369 @@ html {
   align-items: center;
 }
 
+/* ── Bridge strip (home) ── */
+.bridge-strip {
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 2.5rem 3rem;
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  flex-wrap: wrap;
+}
+
+.bridge-strip-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.bridge-strip-value {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+.bridge-strip-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* ── Split CTA ── */
+.hero-cta-split {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.cta-link-primary {
+  display: inline-block;
+  color: #00ff88;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 0.9rem 1.75rem;
+  background: rgba(0, 255, 136, 0.1);
+  border: 1px solid #00ff88;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.cta-link-primary:hover {
+  background: rgba(0, 255, 136, 0.2);
+}
+
+.cta-link-secondary {
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  padding: 0.9rem 1.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.cta-link-secondary:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* ── Bridge split (vision) ── */
+.bridge-split {
+  display: grid;
+  grid-template-columns: 1fr 2px 1fr;
+  gap: 3rem;
+  margin: 5rem 0;
+  align-items: start;
+}
+
+.bridge-split-divider {
+  background: linear-gradient(to bottom, #00ff88, transparent);
+  min-height: 220px;
+}
+
+.bridge-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.bridge-col-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.bridge-col-heading {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+}
+
+.bridge-col-body {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 300;
+}
+
+.bridge-col-accent {
+  color: #00ff88;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+/* ── Belief cards (philosophy) ── */
+.beliefs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 4rem 0;
+}
+
+.belief-card {
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.02);
+  transition: border-color 0.3s, background 0.3s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.belief-card:hover {
+  border-color: rgba(0, 255, 136, 0.25);
+  background: rgba(0, 255, 136, 0.03);
+}
+
+.belief-card-number {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #00ff88;
+  font-weight: 700;
+}
+
+.belief-card-title {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.35;
+}
+
+.belief-card-body {
+  font-size: 0.93rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 300;
+}
+
+/* ── Focus groups ── */
+.focus-group {
+  margin-bottom: 2.5rem;
+}
+
+.focus-group-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ── Process steps (focus) ── */
+.process-section {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.process-heading {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  margin-bottom: 2rem;
+}
+
+.process-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.process-step {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.process-step-number {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #00ff88;
+  letter-spacing: 0.08em;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.process-step-text {
+  font-size: 1.02rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ── Contact split ── */
+.contact-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 4rem 0;
+}
+
+.contact-path {
+  padding: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  transition: border-color 0.3s;
+}
+
+.contact-path:hover {
+  border-color: rgba(0, 255, 136, 0.2);
+}
+
+.contact-path-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #00ff88;
+}
+
+.contact-path-heading {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.contact-path-body {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 300;
+  flex: 1;
+}
+
+.contact-path-checklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.contact-path-checklist li {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.45);
+  padding-left: 1.25rem;
+  position: relative;
+  font-weight: 300;
+}
+
+.contact-path-checklist li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #00ff88;
+}
+
+.contact-path-cta {
+  display: inline-block;
+  color: #00ff88;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 0.7rem 1.25rem;
+  border: 1px solid rgba(0, 255, 136, 0.3);
+  border-radius: 4px;
+  transition: all 0.3s;
+  width: fit-content;
+}
+
+.contact-path-cta:hover {
+  background: rgba(0, 255, 136, 0.1);
+  border-color: #00ff88;
+}
+
+/* ── Responsive additions ── */
+@media (max-width: 900px) {
+  .focus-details { grid-template-columns: repeat(2, 1fr); }
+  .beliefs-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .bridge-strip { gap: 2.5rem; padding: 2rem 1.5rem; }
+  .bridge-split { grid-template-columns: 1fr; gap: 2rem; }
+  .bridge-split-divider { width: 40px; height: 2px; min-height: auto; background: linear-gradient(to right, #00ff88, transparent); }
+  .beliefs-grid { grid-template-columns: 1fr; }
+  .contact-split { grid-template-columns: 1fr; }
+  .hero-cta-split { flex-direction: column; align-items: flex-start; }
+}
+
+.hero-watermark {
+  position: absolute;
+  bottom: -40px;
+  right: -40px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.section-logomark {
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.section-logomark::before,
+.section-logomark::after {
+  content: '';
+  flex: 1;
+  max-width: 60px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
 .footer {
-  padding: 3rem;
+  padding: 2rem 3rem;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -677,11 +1384,16 @@ html {
   max-width: 1400px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  color: rgba(255, 255, 255, 0.3);
-  font-size: 0.875rem;
-  letter-spacing: 0.05em;
+  gap: 1rem;
+}
+
+.footer-copy {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 @media (max-width: 768px) {
@@ -707,14 +1419,15 @@ html {
 
   .nav-links-open { right: 0; }
 
-  .nav-links a {
+  .nav-link {
     padding: 1.25rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    font-size: 1rem;
     width: 100%;
+    letter-spacing: 0.14em;
   }
 
-  .hero-title { font-size: 2.25rem; white-space: normal; }
+  .hero-title { font-size: 2.25rem; }
   .hero-center { padding: 0 1.5rem; }
   .hero-title::after { bottom: -0.25rem; height: 2px; }
   .hero-manifesto { font-size: 1.05rem; }
@@ -760,4 +1473,58 @@ html {
   }
   .team-member-info h3 { font-size: 1.3rem; }
   .team-member-bio { font-size: 1rem; line-height: 1.7; }
+}
+
+/* ────────────────────────────────────────────────────────────
+   Accessibility: prefers-reduced-motion
+   Stop every decorative animation; show static background
+   ──────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  /* Halt all CSS animations and transitions on hero decorative layers */
+  .hero-poster-anim,
+  .hero-poster-anim::before,
+  .hero-poster-anim::after,
+  .hero-poster-anim--sunrise,
+  .hero-poster-anim--sunrise::after,
+  .hero-poster-anim--sunrise::before,
+  .chaos-tile,
+  .logo-anim-spine,
+  .logo-anim-arrow-l,
+  .logo-anim-arrow-r,
+  .logo-anim-bar-top,
+  .logo-anim-bar-mid,
+  .logo-anim-dot,
+  .logo-anim-label {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* Keep the poster image static and centered */
+  .hero-poster-anim {
+    background-size: cover;
+    background-position: center;
+    animation: none !important;
+  }
+
+  /* Show poster at full opacity (no sunrise colour shift) */
+  .hero-poster-anim::after,
+  .hero-poster-anim::before {
+    display: none;
+  }
+
+  /* Sunrise variant — just show the static photo */
+  .hero-poster-anim--sunrise {
+    animation: none !important;
+    background-size: cover;
+    background-position: center;
+  }
+  .hero-poster-anim--sunrise::after,
+  .hero-poster-anim--sunrise::before {
+    display: none;
+  }
+
+  /* Slide transitions: instant cut instead of fade */
+  .hero-slide {
+    transition: none !important;
+  }
 }

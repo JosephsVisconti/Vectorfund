@@ -2,34 +2,39 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import Logo from './Logo'
+
+const navLinks = [
+  { href: '/vision',     label: 'Vision' },
+  { href: '/philosophy', label: 'Philosophy' },
+  { href: '/focus',      label: 'Focus' },
+  { href: '/contact',    label: 'Team' },
+]
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [touchStart, setTouchStart] = useState(null)
-  const [touchEnd, setTouchEnd] = useState(null)
+  const pathname = usePathname()
 
   const closeMenu = () => setMenuOpen(false)
-  const minSwipeDistance = 50
-
-  const onTouchStart = (e) => {
-    setTouchEnd(null)
-    setTouchStart(e.targetTouches[0].clientX)
-  }
-
-  const onTouchMove = (e) => {
-    setTouchEnd(e.targetTouches[0].clientX)
-  }
-
-  const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return
-    const distance = touchStart - touchEnd
-    if (distance < -minSwipeDistance && menuOpen) closeMenu()
-  }
 
   return (
     <header className="header">
       <nav className="nav">
-        <Link href="/" className="logo" onClick={closeMenu}>Vector Fund</Link>
+        <Logo onClick={closeMenu} />
+
+        <div className={`nav-links ${menuOpen ? 'nav-links-open' : ''}`}>
+          {navLinks.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              className={`nav-link ${pathname === href ? 'nav-link-active' : ''}`}
+              onClick={closeMenu}
+            >
+              {label}
+            </Link>
+          ))}
+        </div>
 
         <button
           className="mobile-menu-toggle"
@@ -40,18 +45,6 @@ export default function Header() {
           <span></span>
           <span></span>
         </button>
-
-        <div
-          className={`nav-links ${menuOpen ? 'nav-links-open' : ''}`}
-          onTouchStart={onTouchStart}
-          onTouchMove={onTouchMove}
-          onTouchEnd={onTouchEnd}
-        >
-          <Link href="/vision" onClick={closeMenu}>Vision</Link>
-          <Link href="/philosophy" onClick={closeMenu}>Philosophy</Link>
-          <Link href="/focus" onClick={closeMenu}>Focus</Link>
-          <Link href="/contact" onClick={closeMenu}>Contact</Link>
-        </div>
       </nav>
     </header>
   )

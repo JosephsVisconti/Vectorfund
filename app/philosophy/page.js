@@ -6,32 +6,50 @@ const stages = [
   {
     title: 'Discovery',
     subtitle: 'Finding Exceptional Builders',
-    description: 'You have built something that solves a real problem. It works. Users want it. We find founders at this inflection point—when technical execution meets market opportunity.',
+    description: 'Before anyone else, we identify founders who have built something that works. For investors: this is the moment of lowest valuation and highest upside. For founders: this is when you receive capital without giving up the table.',
     label: 'Where we invest'
   },
   {
     title: 'Formation',
-    subtitle: 'Deploying Resources',
-    description: 'Capital, legal structure, cap table design, IP protection. We deploy the resources you need to establish a proper foundation. You stay focused on building.',
+    subtitle: 'Deploying Infrastructure',
+    description: 'Capital, legal structure, cap table design, IP protection. We deploy the resources you need to establish a proper foundation. For investors, this means no cleanup rounds later. For founders, this means you don\'t lose weekends to paperwork.',
     label: 'Early support'
   },
   {
     title: 'Growth',
     subtitle: 'Scaling Distribution',
-    description: 'Go-to-market strategy. Business model refinement. Customer acquisition. We help you scale what works—pricing, positioning, distribution.',
+    description: 'Go-to-market strategy, pricing, user acquisition, brand positioning. We bring marketing infrastructure that technical founders typically don\'t have and institutional investors don\'t provide. This is the phase that converts great products into real businesses.',
     label: 'Acceleration'
   },
   {
     title: 'Scale',
     subtitle: 'Long-Term Partnership',
-    description: 'Fundraising for next rounds. Team expansion. Market leadership. We support both paths—decades of growth or strategic exits.',
+    description: 'Fundraising strategy for Series A and beyond. Team expansion frameworks. Introductions to the next tier of capital. For investors, this is when marks appreciate. For founders, this is when you hire the team you always wanted.',
     label: 'Building endurance'
   },
   {
     title: 'Liquidity',
     subtitle: 'Creating Outcomes',
-    description: 'Acquisition, secondary sales, public markets, or continued independence. We help founders navigate the path to impact and liquidity.',
+    description: 'Acquisition, secondary sales, public markets, or continued independence. We structure exits that work for everyone at the table — founder, employee, and early investor. The outcome reflects the conviction of everyone who believed early.',
     label: 'Impact realized'
+  }
+]
+
+const beliefs = [
+  {
+    number: '01',
+    title: 'The application layer wins',
+    body: 'The most durable value will not be created by companies training models. It will be created by builders who use models to solve specific, intractable problems in real markets.'
+  },
+  {
+    number: '02',
+    title: 'Generational arbitrage is real',
+    body: 'Experienced capital cannot access AI-native founders without a translator. Technical founders cannot access institutional infrastructure without a guide. We are both.'
+  },
+  {
+    number: '03',
+    title: 'Infrastructure enables conviction',
+    body: 'A founder who has to become their own lawyer, marketer, and accountant has less time to become extraordinary at what they\'re actually building. We remove that friction entirely.'
   }
 ]
 
@@ -41,7 +59,7 @@ export default function Philosophy() {
   return (
     <section className="philosophy page-section">
       <div className="section-content">
-        <h2 className="section-title">Investment Philosophy</h2>
+        <h2 className="section-title">How We Operate</h2>
 
         <div className="horizontal-timeline">
           <div className="timeline-nav">
@@ -65,18 +83,18 @@ export default function Philosophy() {
           </div>
         </div>
 
-        <div className="philosophy-vision">
-          <p>The internet created a generational wave of companies. AI will create the next one.</p>
-          <p>
-            The greatest value will not come from model training—it will come from founders leveraging LLMs from Claude, OpenAI, and xAI to build focused solutions that solve real problems.
-          </p>
-          <p>
-            Our philosophy: deploy capital and resources to help exceptional builders move from Point A to Point B—faster, with fewer obstacles.
-          </p>
+        <div className="beliefs-grid">
+          {beliefs.map((b, i) => (
+            <div key={i} className="belief-card">
+              <span className="belief-card-number">{b.number}</span>
+              <h4 className="belief-card-title">{b.title}</h4>
+              <p className="belief-card-body">{b.body}</p>
+            </div>
+          ))}
         </div>
 
         <div className="philosophy-footer">
-          <p>We invest at the moment of creation. We scale at the moment of conviction.</p>
+          <p>We put capital behind people before the market sees what we see — and we stay until the outcome justifies the conviction.</p>
         </div>
       </div>
     </section>
