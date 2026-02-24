@@ -1,4 +1,8 @@
-function Vision() {
+export const metadata = {
+  title: 'Vision | Vector Fund',
+}
+
+export default function Vision() {
   return (
     <section className="vision page-section">
       <div className="section-content">
@@ -23,5 +27,3 @@ function Vision() {
     </section>
   )
 }
-
-export default Vision

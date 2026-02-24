@@ -1,40 +1,42 @@
+'use client'
+
 import { useState } from 'react'
 
-function Philosophy() {
-  const [activeStage, setActiveStage] = useState(0)
+const stages = [
+  {
+    title: 'Discovery',
+    subtitle: 'Finding Exceptional Builders',
+    description: 'You have built something that solves a real problem. It works. Users want it. We find founders at this inflection point—when technical execution meets market opportunity.',
+    label: 'Where we invest'
+  },
+  {
+    title: 'Formation',
+    subtitle: 'Deploying Resources',
+    description: 'Capital, legal structure, cap table design, IP protection. We deploy the resources you need to establish a proper foundation. You stay focused on building.',
+    label: 'Early support'
+  },
+  {
+    title: 'Growth',
+    subtitle: 'Scaling Distribution',
+    description: 'Go-to-market strategy. Business model refinement. Customer acquisition. We help you scale what works—pricing, positioning, distribution.',
+    label: 'Acceleration'
+  },
+  {
+    title: 'Scale',
+    subtitle: 'Long-Term Partnership',
+    description: 'Fundraising for next rounds. Team expansion. Market leadership. We support both paths—decades of growth or strategic exits.',
+    label: 'Building endurance'
+  },
+  {
+    title: 'Liquidity',
+    subtitle: 'Creating Outcomes',
+    description: 'Acquisition, secondary sales, public markets, or continued independence. We help founders navigate the path to impact and liquidity.',
+    label: 'Impact realized'
+  }
+]
 
-  const stages = [
-    {
-      title: 'Discovery',
-      subtitle: 'Finding Exceptional Builders',
-      description: 'You have built something that solves a real problem. It works. Users want it. We find founders at this inflection point—when technical execution meets market opportunity.',
-      label: 'Where we invest'
-    },
-    {
-      title: 'Formation',
-      subtitle: 'Deploying Resources',
-      description: 'Capital, legal structure, cap table design, IP protection. We deploy the resources you need to establish a proper foundation. You stay focused on building.',
-      label: 'Early support'
-    },
-    {
-      title: 'Growth',
-      subtitle: 'Scaling Distribution',
-      description: 'Go-to-market strategy. Business model refinement. Customer acquisition. We help you scale what works—pricing, positioning, distribution.',
-      label: 'Acceleration'
-    },
-    {
-      title: 'Scale',
-      subtitle: 'Long-Term Partnership',
-      description: 'Fundraising for next rounds. Team expansion. Market leadership. We support both paths—decades of growth or strategic exits.',
-      label: 'Building endurance'
-    },
-    {
-      title: 'Liquidity',
-      subtitle: 'Creating Outcomes',
-      description: 'Acquisition, secondary sales, public markets, or continued independence. We help founders navigate the path to impact and liquidity.',
-      label: 'Impact realized'
-    }
-  ]
+export default function Philosophy() {
+  const [activeStage, setActiveStage] = useState(0)
 
   return (
     <section className="philosophy page-section">
@@ -64,9 +66,7 @@ function Philosophy() {
         </div>
 
         <div className="philosophy-vision">
-          <p>
-            The internet created a generational wave of companies. AI will create the next one.
-          </p>
+          <p>The internet created a generational wave of companies. AI will create the next one.</p>
           <p>
             The greatest value will not come from model training—it will come from founders leveraging LLMs from Claude, OpenAI, and xAI to build focused solutions that solve real problems.
           </p>
@@ -82,5 +82,3 @@ function Philosophy() {
     </section>
   )
 }
-
-export default Philosophy
